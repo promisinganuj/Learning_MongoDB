@@ -1,0 +1,30 @@
+There are 6 datatypes in JSON:
+1. String
+2. Number
+3. Boolean
+4. Null
+5. Array
+6. Object Document
+
+> db.names.find({"name": "XYZ"}).pretty()
+{
+        "_id" : ObjectId("580448c57ce5ea7f3a8a5a1e"),
+        "name" : "XYZ",
+        "age" : 23,
+        "married" : true,
+        "comments" : null,
+        "kids" : [
+                "kid1",
+                "kid2"
+        ],
+        "address" : {
+                "unit" : 123,
+                "street" : "4-5 kings avenue",
+                "city" : "far far away",
+                "state" : "merryland",
+                "postcode" : 1000
+        }
+}
+
+The "" around the key name is optional but recommented in JSON. In javascript, it's optional around the key which is starting with a alpha
+character.
