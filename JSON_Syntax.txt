@@ -26,5 +26,15 @@ There are 6 datatypes in JSON:
         }
 }
 
-The "" around the key name is optional but recommented in JSON. In javascript, it's optional around the key which is starting with a alpha
+* The "" around the key name is optional but recommented in JSON. In javascript, it's optional around the key which is starting with a alpha
 character.
+
+* The keys can repeat in JSON document but shouldn't be used that way. In Mongo 3 (tested on 3.2.10), only the last value is retained:
+> db.names.insert({"test":1,"name": "XYZ", "test": 56, "test":"23"})
+WriteResult({ "nInserted" : 1 })
+> db.names.find({"name": "XYZ"}).pretty()
+{
+        "_id" : ObjectId("58044f137ce5ea7f3a8a5a20"),
+        "test" : "23",
+        "name" : "XYZ"
+}
